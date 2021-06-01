@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 
-const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
-);
+const user = "user";
+const DATABASE = `mongodb+srv://user:${user}@cluster0.fn4fc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+// const DB = process.env.DATABASE.replace(
+//   "<PASSWORD>",
+//   process.env.DATABASE_PASSWORD
+// );
 
 const connectDB = async () => {
-  await mongoose.connect(DB || process.env.DATABASE, {
+  await mongoose.connect(DATABASE || process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
