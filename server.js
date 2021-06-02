@@ -8,9 +8,9 @@ const path = require("path");
 connectDB();
 app.use(express.json());
 
-app.get("/", (req, res, next) => {
-  res.send("Api running");
-});
+// app.get("/", (req, res, next) => {
+//   res.send("Api running");
+// });
 
 // Connecting Routes
 app.use("/api/auth", require("./routes/auth"));

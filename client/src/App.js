@@ -19,7 +19,7 @@ const Error = () => {
       <ul>
         <li>You manually searched for a wrong link</li>
         <li>
-          You are logged in{" "}
+          You are logged in
           <p>
             <i>
               try loggin out <Link to="/private">LOGOUT</Link>
@@ -32,6 +32,17 @@ const Error = () => {
   );
 };
 
+const HomePage = () => {
+  return (
+    <div>
+      <h2>Welcome to the Home page</h2>
+      <p>
+        <Link to="/register">Register</Link> <br />
+        <Link to="/login">Login</Link>
+      </p>
+    </div>
+  );
+};
 const App = () => {
   return (
     <Router>
@@ -40,6 +51,9 @@ const App = () => {
           <PrivateRoute exact path="/private" component={PrivateScreen} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
+          <Route path="/">
+            <HomePage />
+          </Route>
           <Route path="*">
             <Error />
           </Route>
