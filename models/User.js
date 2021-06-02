@@ -40,10 +40,12 @@ UserSchema.pre("save", async function (next) {
 UserSchema.methods.matchPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
-
+const JWT_EXPIRE = "10min";
+const JWT_SECRET =
+  "11591c650cf722f9754c3cd6ddd8d05df874f4f8915612c1c63bcdec284accd7713b22";
 UserSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
+  return jwt.sign({ id: this._id }, JWT_SECRET, {
+    expiresIn: JWT_EXPIRE,
   });
 };
 
