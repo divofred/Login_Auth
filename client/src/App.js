@@ -8,8 +8,8 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
 import RegisterScreen from "./components/screens/RegisterScreen";
-// import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen";
-// import ResetPasswordScreen from "./components/screens/ResetPasswordScreen";
+import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen";
+import ResetPasswordScreen from "./components/screens/ResetPasswordScreen";
 
 const Error = () => {
   return (
@@ -51,13 +51,7 @@ const App = () => {
           <PrivateRoute exact path="/private" component={PrivateScreen} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
-          <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="*">
-            <Error />
-          </Route>
-          {/* <Route
+          <Route
             exact
             path="/forgotpassword"
             component={ForgotPasswordScreen}
@@ -66,7 +60,13 @@ const App = () => {
             exact
             path="/passwordreset/:resetToken"
             component={ResetPasswordScreen}
-          /> */}
+          />
+          <Route path="/">
+            <HomePage />
+          </Route>
+          <Route path="*">
+            <Error />
+          </Route>
         </Switch>
       </div>
     </Router>

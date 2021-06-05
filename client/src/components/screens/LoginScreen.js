@@ -60,6 +60,24 @@ const LoginScreen = ({ history }) => {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="password">
+            Password:{" "}
+            <Link to="/forgotpassword" className="login-screen__forgotpassword">
+              Forgot Password?
+            </Link>
+          </label>
+          {/* <input
+            type="password"
+            required
+            id="password"
+            autoComplete="true"
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            tabIndex={2}
+          /> */}
+        </div>
+        <div className="form-group">
           <input
             type="password"
             required
