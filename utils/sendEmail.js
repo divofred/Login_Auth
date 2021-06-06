@@ -9,7 +9,6 @@ const sendEmail = (options) => {
       pass: "theresafred", // naturally, replace both with your real credentials or an application-specific password
     },
   });
-
   const mailOptions = {
     from: "divo_fred",
     to: options.to,
