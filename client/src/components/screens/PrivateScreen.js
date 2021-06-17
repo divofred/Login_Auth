@@ -40,11 +40,11 @@ const PrivateScreen = ({ history }) => {
   ) : (
     <div style={{ margin: "100px", textAlign: "center" }}>
       <div style={{ background: "green", color: "white" }}>
-        Yo Yo, You logged in to this <i>secret route</i>
+        Yo Yo, You logged in to this <i>secret route</i> As a normal User
         <br />
       </div>
       <h4>Here are some secret for you</h4>
-      <h1>FREDRICK IS SO SO SO SO SO SO SO SO HANDSOME </h1>
+      <h1>FREDRICK IS HANDSOME </h1>
       <button
         onClick={logoutHandler}
         style={{

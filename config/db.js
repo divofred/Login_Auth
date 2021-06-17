@@ -6,6 +6,7 @@ const DATABASE = `mongodb+srv://user:${user}@cluster0.fn4fc.mongodb.net/myFirstD
 //   "<PASSWORD>",
 //   process.env.DATABASE_PASSWORD
 // );
+const localDB = `mongodb://localhost:27017/node_auth`;
 
 const connectDB = async () => {
   await mongoose.connect(DATABASE || process.env.DATABASE, {

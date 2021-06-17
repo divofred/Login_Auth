@@ -11,7 +11,9 @@ const LoginScreen = ({ history }) => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/private");
+      //changed
+      if (email === "admin@gmail.com") history.push("/admin");
+      else history.push("/private");
     }
   }, [history]);
 
@@ -32,8 +34,8 @@ const LoginScreen = ({ history }) => {
       );
 
       localStorage.setItem("authToken", data.token);
-
-      history.push("/private");
+      if (email === "admin@gmail.com") history.push("/admin");
+      else history.push("/private");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

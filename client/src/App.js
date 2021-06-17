@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Routing
@@ -43,6 +44,76 @@ const HomePage = () => {
     </div>
   );
 };
+const UserPlanation = ({ history }) => {
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    history.push("/login");
+  };
+  useEffect(() => {
+    if (!localStorage.getItem("authToken")) {
+      history.push("/login");
+    }
+    const fetchPrivateDate = async () => {
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      //   },
+      // };
+
+      try {
+        // const { data } = await axios.get("/api/private", config);
+        // setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+      }
+    };
+
+    fetchPrivateDate();
+  }, [history]);
+
+  return (
+    <div>
+      <div style={{ margin: "100px", textAlign: "center" }}>
+        <h1>Welcome ADMIN</h1>
+        <div style={{ background: "green", color: "white" }}>
+          Yo Yo, You logged in to this <i>secret route</i>
+          <br />
+        </div>
+        <h4>Here are some secret for you Because you are Senior Man</h4>
+        <h1>FREDRICK IS SO SO SO SO SO SO SO SO HANDSOME </h1>
+        <h2>Over handsomeness dey kill am</h2>
+        <p>
+          <i>
+            If you wan ball out <br /> oya na disembark
+          </i>
+        </p>
+        <button
+          onClick={logoutHandler}
+          style={{
+            background: "rgb(88, 82, 82)",
+            fontSize: "20px",
+            color: "white",
+            marginBottom: "10px",
+          }}
+        >
+          <h2> Logout</h2>
+        </button>
+        <br />
+        <div
+          style={{
+            background: "green",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          Made with love <br />
+          <i>divo_fred</i>
+        </div>
+      </div>
+    </div>
+  );
+};
 const App = () => {
   return (
     <Router>
@@ -51,6 +122,7 @@ const App = () => {
           <PrivateRoute exact path="/private" component={PrivateScreen} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
+          <Route exact path="/admin" component={UserPlanation} />
           <Route
             exact
             path="/forgotpassword"
