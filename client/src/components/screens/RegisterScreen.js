@@ -42,8 +42,10 @@ const RegisterScreen = ({ history }) => {
 
       localStorage.setItem("authToken", data.token);
       //changed
-      if (email === "admin@gmail.com") history.push("/admin");
+      if (data.role === "ADMIN") history.push("/admin");
       else history.push("/private");
+      // if (email === "admin@gmail.com") history.push("/admin");
+      // else history.push("/private");
     } catch (error) {
       if (error.response.data.error.startsWith("Path")) {
         setError("Password less than 6 Character");
